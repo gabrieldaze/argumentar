@@ -77,10 +77,13 @@ void parse_arguments(int argc, char** argv, int optc, arg_opt* args)
 
 	  if (args[i].set_value != NULL) {
 
-	    index++;
-	    /* Set the current option NON FLAG value to equal the next argument */
-	    if (args[i].set_value != NULL) args[i].set_value(argv[index]);
-	    
+	    if (index+1 < argc) {
+	      
+	      index++;
+	      /* Set the current option NON FLAG value to equal the next argument */
+	      if (args[i].set_value != NULL) args[i].set_value(argv[index]);
+	      
+	    }
 	  } 
 	}
       }
